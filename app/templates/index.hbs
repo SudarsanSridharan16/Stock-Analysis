@@ -1,0 +1,28 @@
+<div class="home_container">
+    <div class="home_header">
+        <div class="home_title">
+            <div class="wrapper">
+            <div class="logo_home">
+                <div class="stock_logo"></div>
+                <span class="title_text">STOCK ANALYSIS</span>
+            </div>
+                <select class="home_dropdown">
+                    <option>Select Company</option>
+                    {{#each item in data}}
+                        <option {{bind-attr selected=item.selected}}>{{item.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <div class="home_dropdown_container wrapper">Last update on 12<sup>th</sup> February 2015</div>
+        <div class="dropdown_border"></div>
+    </div>
+    <div class="home_content">
+        {{#if companySelected}}
+            {{view Stock.CompanyView}}
+        {{else}}
+            <div class="home_image"></div>
+        {{/if}}
+    </div>
+    <footer>&copy; Prasanna Joshi</footer>
+</div>

@@ -1,0 +1,34 @@
+<div class="graph_portlet">
+	<div class="graph_list_content">
+		<div class="graph_list_row">
+			<select class="graph_dropdown">
+				<option class="book_value_option">Yearly Book Value</option>
+				<option class="eps_option">Yearly EPS</option>
+				<option class="debt_option">Yearly Debt-Equity</option>
+				<option class="dividend_option">Yearly Dividend</option>
+				<option class="current_ratio_option">Yearly Current Ratio</option>
+			</select>
+			<select class="year_dropdown">
+				<option class="five_year_option">5 yrs</option>
+				<option class="ten_year_option" selected>10 yrs</option>
+			</select>
+		</div>
+		<div class="graph_table">
+			<table>
+				<tr>
+					<th class="year_header">Year</th>
+					<th>{{view.dataHeader}}</th>
+				</tr>
+				{{#each obj in view.tableData}}
+					<tr class="table_row">
+						<td class="year_column">{{obj.year}}</td>
+						<td class="value_column">{{obj.value}}</td>
+					</tr>
+				{{/each}}
+			</table>
+		</div>
+	</div>
+	<div class="graph_content">
+		<div class="chart"></div>
+	</div>
+</div>

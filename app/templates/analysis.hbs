@@ -1,0 +1,19 @@
+<div class="analysis_content">
+	<div class="pros_content">
+		<div class="pros_header">Pros:</div>
+		<ul>
+		{{#each list in selectedObj.pros}}
+			<li class="analysis_row">{{list}}</li>
+		{{/each}}
+		</ul>
+	</div>
+	<div class="cons_content">
+		<div class="cons_header">Cons:</div>
+		<ul>
+		{{#each list in selectedObj.cons}}
+			<li class="analysis_row">{{list}}</li>
+		{{/each}}
+		</ul>
+	</div>
+	<div class="clipboard_div"></div>
+</div>

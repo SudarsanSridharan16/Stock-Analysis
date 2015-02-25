@@ -1,0 +1,26 @@
+<div class="company_details">
+	<span class="company_name">{{selectedObj.name}}<span>
+	<div class="company_desc">
+		<span class="desc"><b>BSE:</b>&nbsp{{selectedObj.bseSymbol}}</span>
+		<span class="desc"><b>NSE:</b>&nbsp{{selectedObj.nseSymbol}}</span>
+		<span class="desc"><b>SECTOR:</b>&nbsp{{selectedObj.sector}}</span>
+	</div>
+</div>
+<div class="company_chart">
+	<div class="chart_header">
+		<span {{bind-attr class=":number_button numberShow:active_button"}}>Ratios</span>
+		<span {{bind-attr class=":graph_button graphShow:active_button"}}>Graphs</span>
+		<span {{bind-attr class=":analysis_button analysisShow:active_button"}}>Analysis</span>
+	</div>
+	<div class="chart_content">
+		{{#if numberShow}}
+			{{view Stock.NumberView}}
+		{{/if}}
+		{{#if graphShow}}
+			{{view Stock.GraphView}}
+		{{/if}}
+		{{#if analysisShow}}
+			{{view Stock.AnalysisView}}
+		{{/if}}
+	</div>
+</div>

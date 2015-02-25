@@ -1,0 +1,306 @@
+$icon-font-path: "../styles/fonts/"; // Change the path to the fonts
+@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
+
+/* varibales */
+$headerColor: rgb(24, 44, 54);
+$chartHeaderColor: rgb(230, 230, 230);
+$chartActiveColor: rgb(60, 150, 179);
+$headerTextColor: #F3EFE0;
+
+/* mixins */
+@mixin border-radius($topLeft, $topRight, $bottomRight, $bottomLeft) {
+	border-top-left-radius:$topLeft;
+	border-top-right-radius:$topRight;
+	border-bottom-right-radius:$bottomRight;
+	border-bottom-left-radius:$bottomLeft;
+}
+
+/* Put your CSS here */
+.container {
+	height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+    padding: 0 !important;
+}
+html, body {
+    @extend .container;
+}
+.loading_div {
+	background: url(../images/loading.gif) no-repeat;
+	background-position: 50% 50%;
+}
+.wrapper {
+	width:1000px;
+	height:100%;
+	margin:0px auto;
+}
+footer {
+	background: #122426;
+	position: fixed;
+	height: 20px;
+	font-size: 10px;
+	color: white;
+	width: 100%;
+	bottom: 0px;
+	z-index: 6;
+	padding-left: 1%;
+	line-height: 20px;
+}
+.home_container {
+	@extend .container;
+	.home_header {
+		position:fixed;
+		width:100%;
+		.home_title {
+			width: 100%;
+			height: 50px;
+			background-color: $headerColor;
+			color: $headerTextColor;
+			line-height: 50px;
+			text-align: center;
+			font-size: 16px;
+			.home_dropdown {
+				width:200px;
+				float:right;
+				margin-top:15px;
+				color:black;
+				font-size:13px;
+			}
+		}
+		.logo_home {
+			float:left;
+			height:50px;
+			width:210px;
+			cursor:pointer;
+			.stock_logo {
+				float:left;
+				height:50px;
+				width:45px;
+				background: url(../images/stock_logo.png) no-repeat;
+				background-size:70%;
+				background-position: 0 30%;
+			}
+			.title_text {
+				float:left;
+				font-size: 18px;
+			}
+		}
+		.home_dropdown_container {
+			height:40px;
+			line-height: 40px;
+			color: black;
+			font-size: 13px;
+		}
+		.dropdown_border {
+			border-bottom: 2px solid $headerColor;
+		}
+	}
+	.home_content {
+		width:100%;
+		overflow:hidden;
+		margin-top:92px;
+		.home_image {
+			height:550px;
+			background: url(../images/stock_site.png) no-repeat;
+			background-size:70%;
+			width:1000px;
+			margin:0 auto;
+			background-position: 50%;
+		}
+		.company_details {
+			.company_name {
+				font-size:20px;
+				height:30px;
+				font-weight: 500;
+			}
+			.company_desc {
+				font-size: 12px;
+				height:30px;
+				line-height: 30px;
+				font-weight: 400;
+				.desc {
+					margin:0 10px 0 0;
+				}
+			}
+		}
+		.company_chart {
+			width:100%;
+			margin-top:10px;
+			box-sizing: border-box;
+			font-size: 13px;
+			.chart_header{
+				width:100%;
+				height:25px;
+			}
+			.chart_button {
+				float:left;
+				height: 100%;
+				text-align:center;
+				line-height: 25px;
+				box-sizing: border-box;
+				background-color:$chartHeaderColor;
+				border:1px solid $headerColor;
+				border-bottom:0;
+				width:100px;
+				@include border-radius(3px, 3px, 0, 0);
+				font-size:13px;
+				cursor: pointer;
+			}
+			.active_button {
+				background-color:$chartActiveColor;
+				color:white;
+			}
+			.number_button {
+				@extend .chart_button;
+			}
+			.graph_button {
+				@extend .chart_button;
+				margin-left:20px;
+			}
+			.analysis_button {
+				@extend .chart_button;
+				margin-left:20px;
+			}
+			.chart_content {
+				width:100%;
+				height:450px;
+				box-sizing: border-box;
+				border:1px solid $headerColor;
+				.number_content {
+					height:450px;
+					padding-top:10px;
+				}
+				.number_row {
+					float:left;
+					width:100%;
+					height:30px;
+					line-height: 30px;
+					border-bottom: 1px solid #ccc;
+					padding:0 25px;
+				}
+				.row_header {
+					float:left;
+					margin-left:5px;
+				}
+				.row_value {
+					float:right;
+					margin-right:5px;
+				}
+			}
+			.graph_portlet {
+				width:100%;
+				.generic_content {
+					height:450px;
+					box-sizing: border-box;
+					float: left;
+				}
+				.graph_list_content {
+					width:300px;
+					@extend .generic_content;
+					padding-left:25px;
+					.graph_list_row {
+						float:left;
+						margin:20px 0 0 0;
+						width:100%;
+						height:30px;
+						line-height:30px;
+						box-sizing: border-box;
+					}
+					.dropdown {
+						float:left;
+						height:18px;
+						margin-top:6px;
+					}
+					.graph_dropdown {
+						width:150px;
+						@extend .dropdown;
+					}
+					.year_dropdown {
+						width:80px;
+						margin-left:30px;
+						@extend .dropdown;
+					}
+					.graph_table {
+						float:left;
+						width:200px;
+						margin:20px 0 0 0;
+						.td_style {
+							border:1px solid $headerColor;
+							min-width:100px;
+							max-width:100px;
+							text-align:right;
+							padding:2px;
+						}
+						tr {
+							height:20px;
+							line-height:20px;
+							th {
+								@extend .td_style;
+								text-align:center;
+							}
+							td {
+								@extend .td_style;
+							}
+							.year_column, .year_header {
+								min-width:60px;
+								max-width:60px;
+							}
+						}
+					}
+
+				}
+				.graph_content {
+					width:700px;
+					@extend .generic_content;
+					.chart {
+						width:600px;
+						height:410px;
+						margin:20px 0 0 50px;
+					}
+				}
+			}
+			.analysis_content {
+				width:100%;
+				height:100%;
+				position: relative;
+				.pros_content, .cons_content {
+					width:450px;
+					float:left;
+					margin:20px 0  0 20px;
+					ul {
+						margin-left:-25px;
+					}
+				}
+				.cons_content {
+					margin-left:60px;
+				}
+				.pros_header, .cons_header {
+					font-size: 18px;
+					height:30px;
+					line-height: 30px;
+					float:left;
+					width:100%;
+				}
+				.cons_header {
+					margin-top:10px;
+				}
+				.analysis_row {
+					font-size: 15px;
+					float:left;
+					margin-top:10px;
+					width:100%;
+				}
+				.clipboard_div {
+					position:absolute;
+					bottom:20px;
+					right:20px;
+					height:200px;
+					width:150px;
+					background: url(../images/clipboard.png) no-repeat;
+					background-size:100%;
+				}
+			}
+		}
+	}
+}
